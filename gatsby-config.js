@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Richard D Kirkley",
-    siteUrl: "richarddkirkley.ca",
+    siteUrl: "https://richarddkirkley.ca",
     description: "Photography and artwork by Richard D Kirkley",
     author: "Richard D Kirkley",
   },
