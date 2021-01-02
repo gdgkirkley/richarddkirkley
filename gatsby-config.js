@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "richarddkirkley",
+    title: "Richard D Kirkley",
+    siteURL: "richarddkirkley.ca",
+    description: "Photography and artwork by Richard D Kirkley",
+    author: "Richard D Kirkley",
   },
   plugins: [
     "gatsby-plugin-styled-components",
