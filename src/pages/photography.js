@@ -1,47 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-
-export const Masonry = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
-  /* Your container needs a fixed height, and it 
-   * needs to be taller than your tallest column. */
-  height: ${(props) => (props.height ? props.height : "7600px")};
-
-  @media (max-width: 768px) {
-    height: 2800px;
-  }
-
-  &::before,
-  ::after {
-    content: "";
-    flex-basis: 100%;
-    width: 0;
-    order: 2;
-  }
-`;
-
-export const Item = styled.div`
-  width: 32%;
-  margin-bottom: 2%;
-
-  &:nth-child(3n + 1) {
-    order: 1;
-  }
-  &:nth-child(3n + 2) {
-    order: 2;
-  }
-  &:nth-child(3n) {
-    order: 3;
-  }
-
-  & img {
-    width: 100%;
-  }
-`;
+import Masonry, { Item } from "../components/Masonry";
 
 const Photography = ({
   data: {

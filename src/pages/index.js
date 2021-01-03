@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { Masonry, Item } from "./photography";
+import Masonry, { Item } from "../components/Masonry";
 import Button from "../components/Button";
 
 const Centered = styled.div`
@@ -18,7 +18,7 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
-      <Masonry height={"1300px"}>
+      <Masonry>
         {edges.map((edge) => (
           <Item key={edge.node.frontmatter.imageAlt}>
             <Link to={`${edge.node.frontmatter.slug}`}>
