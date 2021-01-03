@@ -34,7 +34,10 @@ export const Item = styled.div`
 
 const MasonryComponent = ({ children }) => {
   return (
-    <MasonryStyle breakpointCols={3} columnClassName={"column"}>
+    <MasonryStyle
+      breakpointCols={{ default: 3, 768: 1 }}
+      columnClassName={"column"}
+    >
       {children}
     </MasonryStyle>
   );

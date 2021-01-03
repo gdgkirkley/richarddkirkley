@@ -22,6 +22,10 @@ const SiteTitle = styled.div`
 
   @media (max-width: 768px) {
     margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -29,11 +33,24 @@ const Title = styled.p`
   font-size: ${(props) => props.theme.fontSize.display};
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   color: ${(props) => props.theme.grey1};
+
+  @media (max-width: 768px) {
+    font-size: ${(props) => props.theme.fontSize.title};
+  }
+`;
+
+const Subtitle = styled.p`
+  font-size: ${(props) => props.theme.fontSize.reading};
+
+  @media (max-width: 768px) {
+    font-size: ${(props) => props.theme.fontSize.information};
+  }
 `;
 
 const NavStyle = styled.nav`
   display: flex;
   justify-self: flex-end;
+  flex-direction: column;
   flex: 1 0;
   width: 100%;
   justify-content: space-evenly;
@@ -42,7 +59,12 @@ const NavStyle = styled.nav`
   margin-top: 3rem;
 
   @media (min-width: 768px) {
+    flex-direction: row;
     margin-top: 0;
+
+    & a {
+      padding: 1rem 0;
+    }
   }
 `;
 
@@ -51,7 +73,7 @@ const Header = () => {
     <HeaderStyle>
       <SiteTitle>
         <Title>Richard D Kirkley</Title>
-        <p>Photography Enthusiast. Animal & Nature Lover.</p>
+        <Subtitle>Photography Enthusiast. Animal & Nature Lover.</Subtitle>
       </SiteTitle>
       <NavStyle>
         <Link to="/">Home</Link>

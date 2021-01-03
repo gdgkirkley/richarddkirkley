@@ -16,7 +16,7 @@ const Photography = ({
           <Item key={edge.node.frontmatter.imageAlt}>
             <Link to={`${edge.node.frontmatter.slug}`}>
               <img
-                src={`${edge.node.frontmatter.image}?width=400`}
+                src={`${edge.node.frontmatter.image}?width=500`}
                 alt={edge.node.frontmatter.imageAlt}
               />
             </Link>
