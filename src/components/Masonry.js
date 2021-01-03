@@ -55,7 +55,7 @@ const Masonry = ({ children }) => {
 
     let margin = totalHeight * 0.02;
 
-    setMasonryHeight((totalHeight + margin) / 2.95);
+    setMasonryHeight((totalHeight + margin) / 3 + 100);
   }, []);
 
   return (
