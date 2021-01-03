@@ -138,6 +138,12 @@ const GlobalStyle = createGlobalStyle`
         max-width: 90vw;
         width: ${theme.maxWidth};
         z-index: 2;
+      
+      & h1 {
+        &:nth-of-type(1) {
+          margin: 2rem 0;
+        }
+      }
     }
 
     footer {

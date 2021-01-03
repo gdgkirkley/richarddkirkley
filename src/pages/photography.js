@@ -8,12 +8,19 @@ const Photography = ({
     allMdx: { edges },
   },
 }) => {
+  const handleContext = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Layout>
       <h1>Photography</h1>
       <Masonry>
         {edges.map((edge) => (
-          <Item key={edge.node.frontmatter.imageAlt}>
+          <Item
+            key={edge.node.frontmatter.imageAlt}
+            onContextMenu={handleContext}
+          >
             <Link to={`${edge.node.frontmatter.slug}`}>
               <img
                 src={`${edge.node.frontmatter.image}?width=500`}

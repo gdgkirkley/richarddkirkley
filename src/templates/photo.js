@@ -18,15 +18,33 @@ const Photo = ({ data: { postData } }) => {
 
   const [ref, dimensions] = useDimensions();
 
+  const handleContext = (e) => {
+    e.preventDefault();
+  };
+
+  const { frontmatter } = post;
+
   return (
     <Layout>
-      <h1>{post.frontmatter.title}</h1>
-      <ImageContainer ref={ref}>
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.date ? <p>Taken {frontmatter.date}</p> : null}
+      <div>
+        <p>
+          {frontmatter.camera ? frontmatter.camera : null}
+          {frontmatter.ISO ? ` | ISO: ${frontmatter.ISO}` : null}
+          {frontmatter.fstop ? ` | F-stop: ${frontmatter.fstop}` : null}
+          {frontmatter.exposure ? ` | Exposure: ${frontmatter.exposure}` : null}
+          {frontmatter.focalLength
+            ? ` | Focal Length: ${frontmatter.focalLength}`
+            : null}
+        </p>
+      </div>
+      <ImageContainer ref={ref} onContextMenu={handleContext}>
         <img
-          src={`${post.frontmatter.image}?width=${
+          src={`${frontmatter.image}?width=${
             dimensions.width ? dimensions.width : 1200
           }`}
-          alt={post.frontmatter.imageAlt}
+          alt={frontmatter.imageAlt}
         />
       </ImageContainer>
       <MDXRenderer>{post.body}</MDXRenderer>
@@ -44,6 +62,12 @@ export const query = graphql`
             image
             imageAlt
             slug
+            camera
+            ISO
+            fstop
+            exposure
+            focalLength
+            date(formatString: "LL")
           }
           body
         }
