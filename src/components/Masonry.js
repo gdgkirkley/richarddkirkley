@@ -1,30 +1,21 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
+import Masonry from "react-masonry-css";
 
-export const MasonryStyle = styled.div`
+export const MasonryStyle = styled(Masonry)`
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
-  /* Your container needs a fixed height, and it 
-   * needs to be taller than your tallest column. */
-  height: ${(props) => (props.height ? `${props.height}px` : "7600px")};
 
-  @media (max-width: 768px) {
-    height: 2800px;
-  }
+  width: auto;
 
-  &::before,
-  ::after {
-    content: "";
-    flex-basis: 100%;
-    width: 0;
-    order: 2;
+  & .column {
+    padding-left: 1rem;
+    background-clip: padding-box;
   }
 `;
 
 export const Item = styled.div`
-  width: 32%;
-  margin-bottom: 2%;
+  width: 100%;
+  margin-bottom: 1rem;
 
   &:nth-child(3n + 1) {
     order: 1;
@@ -41,28 +32,12 @@ export const Item = styled.div`
   }
 `;
 
-const Masonry = ({ children }) => {
-  const [masonryHeight, setMasonryHeight] = useState(0);
-  const container = useRef();
-  useLayoutEffect(() => {
-    if (!container.current) return;
-
-    const images = container.current.querySelectorAll("img");
-
-    const totalHeight = [...images].reduce((acc, image) => {
-      return acc + image.clientHeight;
-    }, 0);
-
-    let margin = totalHeight * 0.02;
-
-    setMasonryHeight((totalHeight + margin) / 3 + 100);
-  }, []);
-
+const MasonryComponent = ({ children }) => {
   return (
-    <MasonryStyle ref={container} height={masonryHeight}>
+    <MasonryStyle breakpointCols={3} columnClassName={"column"}>
       {children}
     </MasonryStyle>
   );
 };
 
-export default Masonry;
+export default MasonryComponent;

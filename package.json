@@ -30,6 +30,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-masonry-css": "^1.0.14",
     "styled-components": "^5.2.1"
   }
 }
